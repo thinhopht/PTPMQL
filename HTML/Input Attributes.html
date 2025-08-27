@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>NGuyễn Công Thịnh-2221050527</h1>
+
+<pre>dưới đây là danh sách các thuộc tính hay dùng trong form mà cần phải nhớ:
+type → loại input (text, email, password, number, …)
+
+name → tên biến khi gửi form (server nhận dữ liệu theo name)
+
+value → giá trị mặc định
+
+placeholder → gợi ý trong ô nhập
+
+required → bắt buộc nhập
+
+readonly → chỉ đọc, không sửa được
+
+disabled → bị vô hiệu hóa
+
+min, max → giới hạn số hoặc ngày tháng
+
+minlength, maxlength → giới hạn số ký tự
+
+pattern → định dạng theo regex
+
+checked → mặc định được chọn (radio/checkbox)
+
+multiple → cho phép chọn nhiều (file, email)
+
+autofocus → focus sẵn khi mở form</pre>
+
+
+
+<form action="/action_page.php" autocomplete="on">
+  <label for="fname">First name:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+  <label for="lname">Last name:</label>
+  <input type="text" id="lname" name="lname"><br><br>
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" autocomplete="off"><br><br>
+  <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
+

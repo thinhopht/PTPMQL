@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Thẻ <title>: tiêu đề hiển thị trên tab trình duyệt -->
+    <title>Hướng dẫn các thẻ trong phần head</title>
+
+    <!-- Thẻ <meta>: mô tả thông tin về trang -->
+    <meta charset="UTF-8">
+    <meta name="author" content="Nguyễn Công Thịnh-2221050527">
+
+    <!-- Thẻ <base>: quy định URL gốc cho các liên kết tương đối -->
+    <base href="https://www.example.com/">
+
+    <!-- Thẻ <link>: liên kết tới file CSS bên ngoài -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Thẻ <style>: viết CSS trực tiếp -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f9f9f9;
+        }
+        h1 {
+            color: darkblue;
+        }
+        .note {
+            background: #eef;
+            padding: 10px;
+            border-left: 4px solid blue;
+        }
+    </style>
+
+    <!-- Thẻ <script>: viết JavaScript -->
+    <script>
+        function showMessage() {
+            alert("Xin chào! Đây là ví dụ minh họa thẻ <script> trong HTML.");
+        }
+    </script>
+</head>
+<body>
+    <h1>Nguyễn Công Thịnh-2221050527</h1>
+
+    <div class="note">
+        <p><b>&lt;head&gt;</b>: Là nơi chứa siêu dữ liệu về tài liệu HTML.</p>
+        <p><b>&lt;title&gt;</b>: Xác định tiêu đề của trang (hiện trên tab).</p>
+        <p><b>&lt;meta&gt;</b>: Cung cấp metadata như mô tả, từ khóa, tác giả, charset.</p>
+        <p><b>&lt;base&gt;</b>: Đặt URL gốc cho các liên kết tương đối trong trang.</p>
+        <p><b>&lt;link&gt;</b>: Liên kết tới file CSS hoặc tài nguyên bên ngoài.</p>
+        <p><b>&lt;style&gt;</b>: Viết CSS trực tiếp trong file HTML.</p>
+        <p><b>&lt;script&gt;</b>: Viết JavaScript để thêm chức năng cho trang.</p>
+    </div>
+
+    <button onclick="showMessage()">Click để chạy JavaScript</button>
+    <br><br>
+    <a href="about.html">Link tương đối (sẽ mở theo base URL)</a>
+</body>
+</html>
