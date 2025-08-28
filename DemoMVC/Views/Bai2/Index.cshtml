@@ -1,0 +1,24 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form asp-action="Index">
+       <label>Nhập 2 số bạn muốn tính:</label>
+    <div style="display: flex; align-items: center; gap: 10px; margin-top: 5px;">
+        <input type="number" name="So1" />
+        
+        <select name="Operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">×</option>
+            <option value="/">÷</option>
+        </select>
+        
+        <input type="number" name="So2" />
+    </div>
+    
+    <div style="margin-top: 10px;">
+        <input type="submit" value="Gửi dữ liệu" />
+    </div>
+</form>
+ <h1>@ViewBag.Message</h1>
