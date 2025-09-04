@@ -5,7 +5,7 @@
 <form asp-action="Index">
        <label>Nhập 2 số bạn muốn tính:</label>
     <div style="display: flex; align-items: center; gap: 10px; margin-top: 5px;">
-        <input type="number" name="So1" />
+        <input type="number" name="So1" step="any" />
         
         <select name="Operator">
             <option value="+">+</option>
@@ -14,7 +14,7 @@
             <option value="/">÷</option>
         </select>
         
-        <input type="number" name="So2" />
+        <input type="number" name="So2" step="any" />
     </div>
     
     <div style="margin-top: 10px;">

@@ -22,8 +22,8 @@ public class Bai2 : Controller
     public IActionResult Index(string So1, string So2, string Operator )
     {
         double result = 0;
-        int num1 = int.Parse(So1);
-        int num2 = int.Parse(So2);
+        double num1 = double.Parse(So1);
+        double num2 = double.Parse(So2);
            switch (Operator)
         {
             case "+": result = num1 + num2; break;
@@ -32,8 +32,8 @@ public class Bai2 : Controller
             case "/": result = (double)num1 / num2; break;
         }
     
-    string strOutput = "Kết quả của phép tính trên= "  + result;
-    ViewBag.Message = strOutput;
+    // string strOutput = "Kết quả của phép tính trên= "  + result;
+    ViewBag.Message = result;
     return View();
     }
     

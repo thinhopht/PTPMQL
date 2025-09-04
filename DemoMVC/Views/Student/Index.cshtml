@@ -1,0 +1,25 @@
+@using DemoMVC.Models;
+@model List<Student>
+@{
+    ViewData["Title"] = "Danh sách sinh viên";
+}
+<h2>Danh sách sinh viên</h2>
+
+<table border="1" cellpadding="5">
+    <tr>
+        <th>Mã SV</th>
+        <th>Tên</th>
+        <th>Tuổi</th>
+        <th>Email</th>
+    </tr>
+
+    @foreach (var s in Model)
+    {
+        <tr>
+            <td>@s.Id</td>
+            <td>@s.Name</td>
+            <td>@s.Age</td>
+            <td>@s.Email</td>
+        </tr>
+    }
+</table>

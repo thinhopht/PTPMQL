@@ -23,7 +23,7 @@ public class HomeController : Controller
     {
         int birthYear = int.Parse(Age);
         int ageCalculated = 2025 - birthYear;
-    string strOutput = "Họ và tên: " + FullName + "Số tuổi của bạn là: " + ageCalculated;
+    string strOutput = "Họ và tên: " + FullName + "  Số tuổi của bạn là: " + ageCalculated;
     ViewBag.Message = strOutput;
     return View();
     }
