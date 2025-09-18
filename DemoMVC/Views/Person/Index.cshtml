@@ -23,9 +23,10 @@
             <td>@item.FullName</td>
             <td>@item.Address</td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Sửa</a> |
+               
+                 <a asp-action="Update" asp-route-id="@item.Id">Sửa</a> |
                 <a asp-action="Create" asp-route-id="">Tạo</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Xóa</a>
+                <a asp-action="Delete" asp-route-id="">Xóa</a>
             </td>
         </tr>
     }

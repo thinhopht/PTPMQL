@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DemoMVC.Models
 {
-    [Table ("Persons")] // Chỉ định tên bảng trong cơ sở dữ liệu
+    [Table("Persons")]
     public class Person
     {
         [Key]
@@ -13,5 +13,8 @@ namespace DemoMVC.Models
 
         public string FullName { get; set; } = string.Empty;
         public string Address { get; set; } = string.Empty;
+
+        
     }
+
 }

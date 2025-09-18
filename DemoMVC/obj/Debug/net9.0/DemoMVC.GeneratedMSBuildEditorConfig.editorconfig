@@ -40,6 +40,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFpNFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/download/DemoMVC/Views/Employee/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/download/DemoMVC/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -62,6 +66,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [E:/download/DemoMVC/Views/Person/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uXFByaXZhY3kuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/download/DemoMVC/Views/Person/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uXFVwZGF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/download/DemoMVC/Views/Shared/Error.cshtml]

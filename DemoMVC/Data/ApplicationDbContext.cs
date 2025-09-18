@@ -13,6 +13,7 @@ namespace DemoMVC.Data
 
         // DbSet<Person> ánh xạ tới bảng Person trong database
         public DbSet<Person> Person { get; set; }
-        public DbSet<Student> Students { get; set;}
+        public DbSet<Student> Student { get; set; }
+        public DbSet<Employee> Employee { get; set; }
     }
 }

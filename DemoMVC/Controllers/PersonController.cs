@@ -35,7 +35,17 @@ public IActionResult Create()
     public async Task<IActionResult> Create([Bind("Id,FullName,Address")] Person person)
     {
         if (ModelState.IsValid)
-        {
+        {   if(person.Id != 0)
+            {
+                 var existingPerson = await _context.Person.FirstOrDefaultAsync(p => p.Id == person.Id);
+
+                  if (existingPerson != null)
+                  {
+                    // Xóa bản ghi cũ (có Id trùng)
+                    _context.Person.Remove(existingPerson);
+                    await _context.SaveChangesAsync();
+                  }
+            }
             _context.Add(person);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
@@ -50,35 +60,48 @@ public IActionResult Create()
     }
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Delete([Bind("Id,FullName,Address")] Person person)
+    public async Task<IActionResult> Delete([Bind("Id")] Person person)
     {
         if (ModelState.IsValid)
         {
-            _context.Remove(person);
+            var personInDb = await _context.Person.FindAsync(person.Id);
+            if (personInDb == null)
+            {
+                return NotFound();
+            }
+
+            _context.Person.Remove(personInDb);
             await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
         return View(person);
     }
-/*
+
+ 
+
+
+    [HttpGet]
+    public IActionResult Update(string id)
     {
-        if (id == null || _context.Person == null)
-        {
-            return NotFound();
-        }
-
-        var person = await _context.Person
-            .FirstOrDefaultAsync(m => m.Id == id);
-        if (person == null)
-        {
-            return NotFound();
-        }
-
-        _context.Person.Remove(person);
-        await _context.SaveChangesAsync();
-        return RedirectToAction(nameof(Index));
+        int number = int.Parse(id);
+        var entity = _context.Person.Find(number);
+        return View(entity);
     }
-*/
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Update([Bind("Id,FullName,Address")] Person person)
+    {
+       
+        if (ModelState.IsValid)
+        {
+            _context.Update(person);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        return View(person);
+        
+    }
 
 
     public IActionResult Privacy()
