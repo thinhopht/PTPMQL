@@ -32,7 +32,7 @@ public IActionResult Create()
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("Id,FullName,Address")] Person person)
+    public async Task<IActionResult> Create([Bind("Id,FullName,Address,Email")] Person person)
     {
         if (ModelState.IsValid)
         {   if(person.Id != 0)
@@ -90,7 +90,7 @@ public IActionResult Create()
     }
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Update([Bind("Id,FullName,Address")] Person person)
+    public async Task<IActionResult> Update([Bind("Id,FullName,Address,Email")] Person person)
     {
        
         if (ModelState.IsValid)
