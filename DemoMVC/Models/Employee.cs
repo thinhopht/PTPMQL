@@ -6,9 +6,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace DemoMVC.Models
 {
     [Table("Employees")]
-    public class Employee : Person
+    public class Employee
     {
-        public int EmployeeId { get; set; }
+        [Key]
+        public string EmployeeId { get; set; } = string.Empty;
+        public string FullName { get; set; } = string.Empty;
+        public string Address { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
         public int Age { get; set; }
 
     }

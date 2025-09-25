@@ -2,6 +2,7 @@
 using DemoMVC.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,37 +10,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DemoMVC.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250925070909_ChangePersonIdToString")]
+    partial class ChangePersonIdToString
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.8");
-
-            modelBuilder.Entity("DemoMVC.Models.Employee", b =>
-                {
-                    b.Property<string>("EmployeeId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("Age")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("FullName")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("EmployeeId");
-
-                    b.ToTable("Employees");
-                });
 
             modelBuilder.Entity("DemoMVC.Models.Person", b =>
                 {
@@ -61,6 +39,8 @@ namespace DemoMVC.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Persons");
+
+                    b.UseTptMappingStrategy();
                 });
 
             modelBuilder.Entity("DemoMVC.Models.Student", b =>
@@ -84,6 +64,29 @@ namespace DemoMVC.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Student");
+                });
+
+            modelBuilder.Entity("DemoMVC.Models.Employee", b =>
+                {
+                    b.HasBaseType("DemoMVC.Models.Person");
+
+                    b.Property<int>("Age")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("EmployeeId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.ToTable("Employees");
+                });
+
+            modelBuilder.Entity("DemoMVC.Models.Employee", b =>
+                {
+                    b.HasOne("DemoMVC.Models.Person", null)
+                        .WithOne()
+                        .HasForeignKey("DemoMVC.Models.Employee", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

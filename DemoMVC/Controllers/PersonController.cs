@@ -35,7 +35,7 @@ public IActionResult Create()
     public async Task<IActionResult> Create([Bind("Id,FullName,Address,Email")] Person person)
     {
         if (ModelState.IsValid)
-        {   if(person.Id != 0)
+        {   if(!string.IsNullOrEmpty(person.Id))
             {
                  var existingPerson = await _context.Person.FirstOrDefaultAsync(p => p.Id == person.Id);
 
@@ -84,8 +84,7 @@ public IActionResult Create()
     [HttpGet]
     public IActionResult Update(string id)
     {
-        int number = int.Parse(id);
-        var entity = _context.Person.Find(number);
+        var entity = _context.Person.Find(id);
         return View(entity);
     }
     [HttpPost]
