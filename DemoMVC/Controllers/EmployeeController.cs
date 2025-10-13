@@ -24,6 +24,42 @@ namespace DemoMVC.Controllers
         {
             return View(await _context.Employee.ToListAsync());
         }
+        [HttpPost]
+        public async Task<IActionResult> Index(string AgeFilter)
+        {
+            List<Employee> employees;
+            if (string.IsNullOrEmpty(AgeFilter))
+            {
+                return View(await _context.Employee.ToListAsync());
+            }
+            else
+            {
+                switch (AgeFilter)
+                {
+                    case "under20":
+                        employees = await _context.Employee
+                            .Where(e => e.Age < 20)
+                            .ToListAsync();
+                        break;
+                    case "20to25":
+                        employees = await _context.Employee
+                            .Where(e => e.Age >= 20 && e.Age <= 25)
+                            .ToListAsync();
+                        break;
+                    case "above25":
+                        employees = await _context.Employee
+                            .Where(e => e.Age > 25)
+                            .ToListAsync();
+                        break;
+                    default:
+                        employees = await _context.Employee.ToListAsync();
+                        break;
+                }
+
+                return View(employees);
+            }
+            
+        }
 
         // GET: Employee/Details/5
         public async Task<IActionResult> Details(string? id)
@@ -153,6 +189,36 @@ namespace DemoMVC.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
+         [HttpGet]
+         public IActionResult Find()
+        {
+        return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Find(string Search, Employee employee)
+        {
+            if (Search == null)
+            {
+                return NotFound();
+            }
+
+            var emp = await _context.Employee
+            .FirstOrDefaultAsync(e => e.FullName == Search);
+
+            if (emp == null)
+            {
+                var emps = await _context.Employee
+                .FirstOrDefaultAsync(e => e.EmployeeId == Search);
+                return View(emps);
+            }
+
+
+            return View(emp);
+        }
+        
+
+    
 
         private bool EmployeeExists(string id)
         {

@@ -9,6 +9,20 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<p>
+    <a asp-action="Find">Tìm kiếm</a>
+</p>
+<form method ="Post" asp-action="Index">
+  <label for="AgeFilter">Lọc theo độ tuổi:</label>
+  <select name="AgeFilter">
+    <option value="">Tất cả</option>
+    <option value="under20">Dưới 20</option>
+    <option value="20to25">20 - 25</option>
+    <option value="above25">Trên 25</option>
+  </select>
+  <button type="submit">Lọc</button>
+</form>
+
 <table class="table">
     <thead>
         <tr>

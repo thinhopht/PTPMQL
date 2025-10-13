@@ -1,0 +1,26 @@
+ 
+ @model DemoMVC.Models.Employee
+
+ @{
+    ViewData["Title"] = "Find";
+}
+
+<h2>Tìm kiếm nhân viên</h2>
+  <form asp-action="Find" >
+            <input type="text" name="Search" placeholder="Nhập tên hoặc id "/>
+            <input type="submit" value="Search" />
+   </form>
+@if (Model != null){
+    <h3>Kết quả tìm kiếm</h3>
+    <div>
+    <p>Id: @Model.EmployeeId</p>
+    <p>Họ tên: @Model.FullName</p>
+    <p>Tuổi: @Model.Age</p>
+    <p>Email: @Model.Email</p>
+</div>
+}
+else
+{
+    <p>Không tìm thấy nhân viên</p>
+}
+ 
