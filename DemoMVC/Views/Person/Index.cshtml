@@ -5,13 +5,22 @@
 }
 
 <h1>Danh sách Person</h1>
+<form asp-action="Upload">
+<lable >Up file excel từ thiết bị của bạn:</label> <br>
+<input type="file"  name="File"  />
+<br>
+<input type="submit" value="Upload file" style="background-color: green; color: white; padding: 6px 14px; border:none; border-radius:4px;" />
 
+
+
+</form>
 <table class="table table-striped">
     <thead>
         <tr>
             <th>PersonId</th>
             <th>Họ và Tên</th>
             <th>Địa chỉ</th>
+            <th> Mail </th>
             <th></th> <!-- Cột thao tác -->
         </tr>
     </thead>

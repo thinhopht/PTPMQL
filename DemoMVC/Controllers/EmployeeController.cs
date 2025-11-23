@@ -1,4 +1,6 @@
 using System;
+using X.PagedList;
+using X.PagedList.Extensions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,6 +11,7 @@ using DemoMVC.Data;
 using DemoMVC.Models;
 using DemoMVC.AutoId;
 namespace DemoMVC.Controllers
+
 {
     public class EmployeeController : Controller
     {
@@ -20,9 +23,11 @@ namespace DemoMVC.Controllers
         }
 
         // GET: Employee
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int ? page)
         {
-            return View(await _context.Employee.ToListAsync());
+
+            var model = _context.Employee.OrderBy(e => e.EmployeeId);
+            return View(model.ToPagedList(page ?? 1, 5));
         }
         [HttpPost]
         public async Task<IActionResult> Index(string AgeFilter)
